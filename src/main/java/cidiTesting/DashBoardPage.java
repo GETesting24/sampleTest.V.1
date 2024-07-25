@@ -14,6 +14,9 @@ public class DashBoardPage extends DashBoardPageBase {
     @FindBy(css = "[class='body-1']")
     private ExtendedWebElement testingEnvironmentMessage;
 
+    @FindBy(xpath = "//p[text()='Gestión de Estudiantes']")
+    private ExtendedWebElement gestionEstudiantesIcon;
+
     public DashBoardPage(WebDriver driver) {
         super(driver);
     }
@@ -25,5 +28,11 @@ public class DashBoardPage extends DashBoardPageBase {
     @Override
     public boolean isPageOpened(String message) {
         return testingEnvironmentMessage.isElementWithTextPresent(message);
+    }
+
+    @Override
+    public GestionDeEstudiantesCidiPageBase clickOnGestiondeEstudiantesIcon() {
+        gestionEstudiantesIcon.click();
+        return initPage(getDriver(), GestionDeEstudiantesCidiPageBase.class);
     }
 }
