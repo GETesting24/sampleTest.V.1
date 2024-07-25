@@ -12,4 +12,6 @@ public abstract class DashBoardPageBase extends AbstractPage {
     public abstract boolean isUserNamePresent();
 
     public abstract boolean isPageOpened(String message);
+
+    public abstract GestionDeEstudiantesCidiPageBase clickOnGestiondeEstudiantesIcon();
 }
