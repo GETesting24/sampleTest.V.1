@@ -1,17 +1,16 @@
 package cidiTesting.functionalities;
 
-import cidiTesting.CidiPortal;
-import cidiTesting.DashBoard;
-import cidiTesting.DashBoardBase;
+import cidiTesting.PortalPublicoPage;
+import cidiTesting.DashBoardPageBase;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 
 public interface ILogin extends IAbstractTest {
 
-    default DashBoardBase login(String user, String pass) {
-        CidiPortal portal = new CidiPortal(getDriver());
+    default DashBoardPageBase login() {
+        PortalPublicoPage portal = new PortalPublicoPage(getDriver());
         portal.openPortalPage();
         portal.clickIngresarButton();
-        portal.loginCidiTest(user, pass);
-        return initPage(getDriver(), DashBoardBase.class);
+        portal.loginCidiTest();
+        return initPage(getDriver(), DashBoardPageBase.class);
     }
 }
